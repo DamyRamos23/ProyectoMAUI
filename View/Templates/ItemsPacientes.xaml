@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoMAUI.Templates.ItemsPacientes"
+             xmlns:mo="clr-namespace:ProyectoMAUI.Model"
+             xmlns:vm="clr-namespace:ProyectoMAUI.ViewModel"
+             xmlns:vi="clr-namespace:ProyectoMAUI.View"
+             x:DataType="mo:PacienteModel">
+    <ContentView.Resources>
+        <Style x:Key="Registro" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <Style x:Key="Id" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource White}" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </ContentView.Resources>
+    
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ID -->
+        <Border BackgroundColor="{StaticResource Primary}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25" />
+            </Border.StrokeShape>
+            <Label Style="{StaticResource Id}" Text="{Binding Id}" />
+        </Border>
+
+        <!-- Nombre / Apellido -->
+        <HorizontalStackLayout Grid.Column="1">
+            <Label Style="{StaticResource Registro}" Text="{Binding Nombre}" />
+            <Label Style="{StaticResource Registro}" Text="{Binding Apellido}" />
+        </HorizontalStackLayout>
+
+        <!-- Botones -->
+        <HorizontalStackLayout Grid.Column="2" HorizontalOptions="Center">
+            <ImageButton
+                Source="edit.png"
+                WidthRequest="40"
+                Command="{Binding 
+                    Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+                    Path=BindingContext.EditarPacienteCommand}"
+                CommandParameter="{Binding .}"/>
+
+            <ImageButton
+                Source="trash.png"
+                WidthRequest="40"
+                Command="{Binding 
+                    Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+                    Path=BindingContext.EliminarPacienteCommand}"
+                CommandParameter="{Binding .}" />
+            </HorizontalStackLayout>
+
+        <BoxView
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="LightGray"
+            HeightRequest="1" />
+
+    </Grid>
+</ContentView>
