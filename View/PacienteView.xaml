@@ -74,7 +74,7 @@
             Grid.Column="0"
             Text="Nivel de Actividad:" />
 
-        <Picker Title="Selecciona nivel de actividad"
+        <Picker
                 Grid.Row="13"
                 ItemsSource="{Binding OpcionesNivelActividad}"
                 SelectedItem="{Binding NivelActividad, Mode=TwoWay}" />

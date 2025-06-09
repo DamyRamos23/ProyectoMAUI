@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ProyectoMAUI.ViewModel"
+             x:Class="ProyectoMAUI.View.CalculoPacienteView"
+             x:DataType="vm:CalculoPacienteViewModel"
+             Title="Cálculo del Paciente">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Selecciona un paciente"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Selector de paciente -->
+            <Picker ItemsSource="{Binding Pacientes}"
+                    SelectedItem="{Binding PacienteSeleccionado}"
+                    Title="Pacientes disponibles" />
+
+            <!-- Información del paciente -->
+            <Frame IsVisible="{Binding MostrarResultados}"
+                   Padding="15"
+                   CornerRadius="12"
+                   BackgroundColor="#F0F0F0"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- Datos personales -->
+                    <Label Text="Datos del paciente"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#333" />
+
+                    <HorizontalStackLayout>
+                        <Label Text="Nombre completo: " FontAttributes="Bold" Margin="0,0,2,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Nombre}" Margin="0,0,3,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Apellido}" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Edad:" FontAttributes="Bold" Margin="0,0,2,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Edad}" Margin="0,0,3,0"/>
+                        <Label Text="años"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Peso:" FontAttributes="Bold" Margin="0,0,2,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Peso}" Margin="0,0,3,0"/>
+                        <Label Text="kg"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Estatura:" FontAttributes="Bold" Margin="0,0,2,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Estatura}" Margin="0,0,3,0"/>
+                        <Label Text="cm" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Sexo (M o F):" FontAttributes="Bold" Margin="0,0,2,0"/>
+                        <Label Text="{Binding PacienteSeleccionado.Sexo}" />
+                    </HorizontalStackLayout>
+
+                    <!-- Resultados -->
+                    <Label Text="Datos de salud"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#333"
+                           Margin="0,20,0,0" />
+
+                    <Label Text="Peso ideal:" FontAttributes="Bold"/>
+                    <Label Text="{Binding PesoIdealTexto}"/>
+                    <Label Text="IMC del paciente:" FontAttributes="Bold"/>
+                    <Label Text="{Binding ImcTexto}"/>
+                    <Label Text="Porcentaje de grasa:" FontAttributes="Bold"/>
+                    <Label Text="{Binding GrasaTexto}"/>
+                    <Label Text="Gasto total de energía diario:" FontAttributes="Bold"/>
+                    <Label Text="{Binding TdeeTexto}"/>
+
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

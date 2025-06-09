@@ -8,7 +8,9 @@
              x:DataType="mo:PacienteModel">
     <ContentView.Resources>
         <Style x:Key="Registro" TargetType="Label">
-            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+            <Setter Property="TextColor" Value="{StaticResource Black}" />
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Padding" Value="5" />
         </Style>
 
@@ -45,22 +47,19 @@
 
         <!-- Botones -->
         <HorizontalStackLayout Grid.Column="2" HorizontalOptions="Center">
-            <ImageButton
-                Source="edit.png"
-                WidthRequest="40"
-                Command="{Binding 
-                    Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-                    Path=BindingContext.EditarPacienteCommand}"
-                CommandParameter="{Binding .}"/>
+            <Button Text="Editar Paciente"
+                    Command="{Binding 
+                Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+                Path=BindingContext.EditarPacienteCommand}"
+                    CommandParameter="{Binding .}"/>
 
-            <ImageButton
-                Source="trash.png"
-                WidthRequest="40"
-                Command="{Binding 
-                    Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-                    Path=BindingContext.EliminarPacienteCommand}"
-                CommandParameter="{Binding .}" />
-            </HorizontalStackLayout>
+
+            <Button Text="Borrar Paciente"
+                    Command="{Binding 
+                Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+                Path=BindingContext.EliminarPacienteCommand}"
+                    CommandParameter="{Binding .}" />
+        </HorizontalStackLayout>
 
         <BoxView
             Grid.Row="1"
