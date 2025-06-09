@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using ProyectoMAUI.ViewModel;
 using ProyectoMAUI.Servicios;
@@ -33,10 +33,12 @@ namespace ProyectoMAUI
             // Registro de ViewModels
             services.AddTransient<PacientesViewModel>();
             services.AddTransient<PacienteViewModel>();
+            services.AddTransient<CalculoPacienteViewModel>();
 
             // Registro de Views
             services.AddTransient<ListadoPacienteView>();
             services.AddTransient<PacienteView>();
+            services.AddTransient<CalculoPacienteView>();
 
             return services.BuildServiceProvider();
         }
