@@ -12,15 +12,15 @@
     >
 
     <ShellContent
-        Title="Listar"
+        Title="Listado de pacientes"
         ContentTemplate="{DataTemplate vi:ListadoPacienteView}"
         Route="Listado Pacientes" />
     <ShellContent
-        Title="Nuevo Paciente"
+        Title="Registro de pacientes"
         ContentTemplate="{DataTemplate vi:PacienteView}"
         Route="Paciente" />
     <ShellContent
-        Title="Detalle de paciente"
+        Title="Detalle de un paciente"
         ContentTemplate="{DataTemplate vi:CalculoPacienteView}"
         Route="Detalle Paciente"/>
 

@@ -7,65 +7,67 @@
              xmlns:vi="clr-namespace:ProyectoMAUI.View"
              x:DataType="mo:PacienteModel">
     <ContentView.Resources>
+        <!-- Estilo para los textos de nombre y apellido -->
         <Style x:Key="Registro" TargetType="Label">
-            <Setter Property="TextColor" Value="{StaticResource Black}" />
+            <Setter Property="TextColor" Value="#222" />
             <Setter Property="VerticalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Padding" Value="5" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="2,0" />
         </Style>
 
+        <!-- Estilo para el ID del paciente -->
         <Style x:Key="Id" TargetType="Label">
-            <Setter Property="TextColor" Value="{StaticResource White}" />
-            <Setter Property="Padding" Value="5" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="4,2" />
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
         </Style>
     </ContentView.Resources>
-    
-    <Grid Padding="10">
+
+    <!-- Contenedor general con diseño simple -->
+    <Grid Padding="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- ID -->
-        <Border BackgroundColor="{StaticResource Primary}">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="25" />
-            </Border.StrokeShape>
-            <Label Style="{StaticResource Id}" Text="{Binding Id}" />
+        <!-- ID del paciente en un recuadro simple -->
+        <Border BackgroundColor="#AFC8AD" Padding="2,2,2,2" VerticalOptions="Center">
+            <Label Style="{StaticResource Id}" Text="{Binding Id}" TextColor="#050505" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
         </Border>
 
-        <!-- Nombre / Apellido -->
-        <HorizontalStackLayout Grid.Column="1">
+        <!-- Nombre y Apellido -->
+        <HorizontalStackLayout Grid.Column="1" Padding="10,0">
             <Label Style="{StaticResource Registro}" Text="{Binding Nombre}" />
             <Label Style="{StaticResource Registro}" Text="{Binding Apellido}" />
         </HorizontalStackLayout>
 
         <!-- Botones -->
-        <HorizontalStackLayout Grid.Column="2" HorizontalOptions="Center">
-            <Button Text="Editar Paciente"
-                    Command="{Binding 
-                Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-                Path=BindingContext.EditarPacienteCommand}"
-                    CommandParameter="{Binding .}"/>
+        <HorizontalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="6">
+            <Button Text="Editar"
+                Command="{Binding 
+            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+            Path=BindingContext.EditarPacienteCommand}"
+                CommandParameter="{Binding .}"/>
 
-
-            <Button Text="Borrar Paciente"
-                    Command="{Binding 
-                Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-                Path=BindingContext.EliminarPacienteCommand}"
-                    CommandParameter="{Binding .}" />
+            <Button Text="Eliminar"
+                Command="{Binding 
+            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
+            Path=BindingContext.EliminarPacienteCommand}"
+                CommandParameter="{Binding .}" />
         </HorizontalStackLayout>
 
+        <!-- Línea separadora -->
         <BoxView
-            Grid.Row="1"
-            Grid.ColumnSpan="3"
-            BackgroundColor="LightGray"
-            HeightRequest="1" />
-
+        Grid.Row="1"
+        Grid.ColumnSpan="3"
+        BackgroundColor="#E0E0E0"
+        HeightRequest="1" />
     </Grid>
 </ContentView>

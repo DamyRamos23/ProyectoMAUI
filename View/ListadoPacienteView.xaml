@@ -8,17 +8,9 @@
              x:DataType="vm:PacientesViewModel"
              Title="Listado de Pacientes"
              BackgroundColor="#AFC8AD">
-    <Grid RowDefinitions="100,*,50">
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="Actualizar Lista"
-                    Command="{Binding ListarPacientesCommand}"
-                    IsVisible="{Binding IsReady}"/>
-
-            <Button Text="Añadir paciente"
-                    Command="{Binding AddNewCommand}"/>
-        </HorizontalStackLayout>
+    <Grid RowDefinitions="*,100">
         <Frame
-            Grid.Row="1"
+            Grid.Row="0"
             Margin="10"
             Background="#f5f5f5"
             HorizontalOptions="Center">
@@ -38,6 +30,14 @@
                 </CollectionView>
             </RefreshView>
         </Frame>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Grid.Row="1">
+            <Button Text="Actualizar Lista"
+                    Command="{Binding ListarPacientesCommand}"
+                    IsVisible="{Binding IsReady}"/>
 
+            <Button Text="Añadir paciente"
+                    Command="{Binding AddNewCommand}"/>
+        </HorizontalStackLayout>
     </Grid>
 </ContentPage>

@@ -10,41 +10,47 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-
+            <!-- Estilo para Entry -->
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="#f5f5f5"/>
                 <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="PlaceholderColor" Value="AliceBlue"/>
+                <Setter Property="PlaceholderColor" Value="#A0A0A0"/>
+                <!-- Mejor contraste -->
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="Margin" Value="10,5"/>
                 <Setter Property="HeightRequest" Value="40"/>
-                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
 
+            <!-- Estilo para Picker -->
             <Style TargetType="Picker">
                 <Setter Property="BackgroundColor" Value="#f5f5f5"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="Margin" Value="10,5"/>
-                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
 
+            <!-- Estilo para Button -->
             <Style TargetType="Button">
-                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <!-- Más cómodo para toque -->
                 <Setter Property="BackgroundColor" Value="{StaticResource Secondary}"/>
                 <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"/>
                 <Setter Property="BorderColor" Value="{StaticResource Black}"/>
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="Margin" Value="0,0,10,0"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <!-- Ajusta según diseño -->
             </Style>
 
+            <!-- Estilo para NavigationPage -->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#7D9D82"/>
-                <!-- Color de fondo -->
                 <Setter Property="BarTextColor" Value="Black"/>
-                <!-- Color del texto -->
             </Style>
 
+            <!-- Estilo para Label -->
             <Style TargetType="Label">
                 <Setter Property="Margin" Value="0,0,0,5"/>
             </Style>

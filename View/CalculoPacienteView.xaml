@@ -4,7 +4,8 @@
              xmlns:vm="clr-namespace:ProyectoMAUI.ViewModel"
              x:Class="ProyectoMAUI.View.CalculoPacienteView"
              x:DataType="vm:CalculoPacienteViewModel"
-             Title="Cálculo del Paciente">
+             Title="Detalle de un paciente"
+             BackgroundColor="#AFC8AD">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
