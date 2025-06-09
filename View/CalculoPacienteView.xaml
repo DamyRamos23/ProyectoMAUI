@@ -10,79 +10,105 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <!-- Título -->
+            <!-- Título principal -->
             <Label Text="Selecciona un paciente"
-                   FontSize="24"
+                   FontSize="28"
                    FontAttributes="Bold"
+                   TextColor="#2E4F4F"
                    HorizontalOptions="Center" />
 
             <!-- Selector de paciente -->
-            <Picker ItemsSource="{Binding Pacientes}"
-                    SelectedItem="{Binding PacienteSeleccionado}"
-                    Title="Pacientes disponibles" />
+            <Frame Padding="0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                <Picker ItemsSource="{Binding Pacientes}"
+                        SelectedItem="{Binding PacienteSeleccionado}"
+                        Title="Pacientes disponibles"
+                        FontSize="18"
+                        TextColor="#2E4F4F"
+                        Margin="10" />
+            </Frame>
 
-            <!-- Información del paciente -->
+            <!-- Contenedor con información del paciente -->
             <Frame IsVisible="{Binding MostrarResultados}"
-                   Padding="15"
-                   CornerRadius="12"
-                   BackgroundColor="#F0F0F0"
-                   HasShadow="True">
+                   Padding="20"
+                   CornerRadius="16"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#A4C3B2">
 
-                <VerticalStackLayout Spacing="12">
+                <VerticalStackLayout Spacing="18">
 
-                    <!-- Datos personales -->
+                    <!-- Sección: Datos personales -->
                     <Label Text="Datos del paciente"
-                           FontSize="20"
+                           FontSize="22"
                            FontAttributes="Bold"
-                           TextColor="#333" />
+                           TextColor="#2E4F4F" />
 
-                    <HorizontalStackLayout>
-                        <Label Text="Nombre completo: " FontAttributes="Bold" Margin="0,0,2,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Nombre}" Margin="0,0,3,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Apellido}" />
+                    <!-- Nombre completo -->
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Nombre completo:" 
+                               FontAttributes="Bold" 
+                               TextColor="#52796F" />
+                        <Label Text="{Binding PacienteSeleccionado.Nombre}" 
+                               TextColor="#354F52" />
+                        <Label Text="{Binding PacienteSeleccionado.Apellido}" 
+                               TextColor="#354F52" />
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout>
-                        <Label Text="Edad:" FontAttributes="Bold" Margin="0,0,2,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Edad}" Margin="0,0,3,0"/>
-                        <Label Text="años"/>
+                    <!-- Edad -->
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Edad:" FontAttributes="Bold" TextColor="#52796F" />
+                        <Label Text="{Binding PacienteSeleccionado.Edad}" TextColor="#354F52" />
+                        <Label Text="años" TextColor="#354F52" />
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout>
-                        <Label Text="Peso:" FontAttributes="Bold" Margin="0,0,2,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Peso}" Margin="0,0,3,0"/>
-                        <Label Text="kg"/>
+                    <!-- Peso -->
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Peso:" FontAttributes="Bold" TextColor="#52796F" />
+                        <Label Text="{Binding PacienteSeleccionado.Peso}" TextColor="#354F52" />
+                        <Label Text="kg" TextColor="#354F52" />
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout>
-                        <Label Text="Estatura:" FontAttributes="Bold" Margin="0,0,2,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Estatura}" Margin="0,0,3,0"/>
-                        <Label Text="cm" />
+                    <!-- Estatura -->
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Estatura:" FontAttributes="Bold" TextColor="#52796F" />
+                        <Label Text="{Binding PacienteSeleccionado.Estatura}" TextColor="#354F52" />
+                        <Label Text="cm" TextColor="#354F52" />
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout>
-                        <Label Text="Sexo (M o F):" FontAttributes="Bold" Margin="0,0,2,0"/>
-                        <Label Text="{Binding PacienteSeleccionado.Sexo}" />
+                    <!-- Sexo -->
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Sexo (M o F):" FontAttributes="Bold" TextColor="#52796F" />
+                        <Label Text="{Binding PacienteSeleccionado.Sexo}" TextColor="#354F52" />
                     </HorizontalStackLayout>
 
-                    <!-- Resultados -->
+                    <!-- Separador -->
+                    <BoxView HeightRequest="1" BackgroundColor="#A4C3B2" Margin="0,12" />
+
+                    <!-- Datos de salud -->
                     <Label Text="Datos de salud"
-                           FontSize="20"
+                           FontSize="22"
                            FontAttributes="Bold"
-                           TextColor="#333"
-                           Margin="0,20,0,0" />
+                           TextColor="#2E4F4F" />
 
-                    <Label Text="Peso ideal:" FontAttributes="Bold"/>
-                    <Label Text="{Binding PesoIdealTexto}"/>
-                    <Label Text="IMC del paciente:" FontAttributes="Bold"/>
-                    <Label Text="{Binding ImcTexto}"/>
-                    <Label Text="Porcentaje de grasa:" FontAttributes="Bold"/>
-                    <Label Text="{Binding GrasaTexto}"/>
-                    <Label Text="Gasto total de energía diario:" FontAttributes="Bold"/>
-                    <Label Text="{Binding TdeeTexto}"/>
+                    <!-- Peso ideal -->
+                    <Label Text="Peso ideal:" FontAttributes="Bold" TextColor="#52796F" />
+                    <Label Text="{Binding PesoIdealTexto}" TextColor="#354F52" />
+
+                    <!-- IMC -->
+                    <Label Text="IMC del paciente:" FontAttributes="Bold" TextColor="#52796F" />
+                    <Label Text="{Binding ImcTexto}" TextColor="#354F52" />
+
+                    <!-- Porcentaje de grasa -->
+                    <Label Text="Porcentaje de grasa:" FontAttributes="Bold" TextColor="#52796F" />
+                    <Label Text="{Binding GrasaTexto}" TextColor="#354F52" />
+
+                    <!-- Gasto energético -->
+                    <Label Text="Gasto total de energía diario:" FontAttributes="Bold" TextColor="#52796F" />
+                    <Label Text="{Binding TdeeTexto}" TextColor="#354F52" />
 
                 </VerticalStackLayout>
             </Frame>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

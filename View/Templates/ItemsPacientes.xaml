@@ -1,73 +1,79 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoMAUI.Templates.ItemsPacientes"
              xmlns:mo="clr-namespace:ProyectoMAUI.Model"
-             xmlns:vm="clr-namespace:ProyectoMAUI.ViewModel"
              xmlns:vi="clr-namespace:ProyectoMAUI.View"
-             x:DataType="mo:PacienteModel">
+             x:Class="ProyectoMAUI.Templates.ItemsPacientes"
+             x:DataType="mo:PacienteModel"
+             BackgroundColor="Transparent">
+
+    <!-- Recursos -->
     <ContentView.Resources>
-        <!-- Estilo para los textos de nombre y apellido -->
+        <!-- Estilo para Nombre y Apellido -->
         <Style x:Key="Registro" TargetType="Label">
-            <Setter Property="TextColor" Value="#222" />
+            <Setter Property="TextColor" Value="#2E2E2E"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="2,0" />
+            <Setter Property="Padding" Value="4,0"/>
         </Style>
 
-        <!-- Estilo para el ID del paciente -->
+        <!-- Estilo para ID -->
         <Style x:Key="Id" TargetType="Label">
-            <Setter Property="TextColor" Value="White" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="4,2" />
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
         </Style>
+
     </ContentView.Resources>
 
-    <!-- Contenedor general con diseño simple -->
-    <Grid Padding="8">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="10" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <!-- Tarjeta principal -->
+    <Frame Padding="12"
+           Margin="6"
+           CornerRadius="16"
+           BackgroundColor="White"
+           HasShadow="True"
+           BorderColor="#DADADA">
 
-        <!-- ID del paciente en un recuadro simple -->
-        <Border BackgroundColor="#AFC8AD" Padding="2,2,2,2" VerticalOptions="Center">
-            <Label Style="{StaticResource Id}" Text="{Binding Id}" TextColor="#050505" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-        </Border>
+        <Grid RowSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Nombre y Apellido -->
-        <HorizontalStackLayout Grid.Column="1" Padding="10,0">
-            <Label Style="{StaticResource Registro}" Text="{Binding Nombre}" />
-            <Label Style="{StaticResource Registro}" Text="{Binding Apellido}" />
-        </HorizontalStackLayout>
+            <!-- ID -->
+            <Frame BackgroundColor="#84A59D"
+                   CornerRadius="8"
+                   Padding="6"
+                   HasShadow="False"
+                   VerticalOptions="Center">
+                <Label Style="{StaticResource Id}" Text="{Binding Id}"/>
+            </Frame>
 
-        <!-- Botones -->
-        <HorizontalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="6">
-            <Button Text="Editar"
-                Command="{Binding 
-            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-            Path=BindingContext.EditarPacienteCommand}"
-                CommandParameter="{Binding .}"/>
+            <!-- Nombre completo -->
+            <VerticalStackLayout Grid.Column="1" Padding="10,0" VerticalOptions="Center">
+                <Label Style="{StaticResource Registro}" Text="{Binding Nombre}"/>
+                <Label Style="{StaticResource Registro}" Text="{Binding Apellido}" FontAttributes="None" FontSize="16" TextColor="#555"/>
+            </VerticalStackLayout>
 
-            <Button Text="Eliminar"
-                Command="{Binding 
-            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}}, 
-            Path=BindingContext.EliminarPacienteCommand}"
-                CommandParameter="{Binding .}" />
-        </HorizontalStackLayout>
+            <!-- Botones -->
+            <HorizontalStackLayout Grid.Column="2" Spacing="8" VerticalOptions="Center">
+                <Button Text="Editar"
+                        Command="{Binding 
+                            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}},
+                            Path=BindingContext.EditarPacienteCommand}"
+                        CommandParameter="{Binding .}"/>
 
-        <!-- Línea separadora -->
-        <BoxView
-        Grid.Row="1"
-        Grid.ColumnSpan="3"
-        BackgroundColor="#E0E0E0"
-        HeightRequest="1" />
-    </Grid>
+                <Button Text="Eliminar"
+                        BackgroundColor="#0bba41"
+                        Command="{Binding 
+                            Source={RelativeSource AncestorType={x:Type vi:ListadoPacienteView}},
+                            Path=BindingContext.EliminarPacienteCommand}"
+                        CommandParameter="{Binding .}"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </Frame>
 </ContentView>

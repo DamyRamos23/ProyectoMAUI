@@ -15,36 +15,90 @@
                 <Label Text="Nombre:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Nombre}" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding NombreError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding NombreError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Apellido -->
             <Grid ColumnDefinitions="80,*">
                 <Label Text="Apellido:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Apellido}" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding ApellidoError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding ApellidoError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Edad -->
             <Grid ColumnDefinitions="80,*">
                 <Label Text="Edad:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Edad}" Keyboard="Numeric" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding EdadError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding EdadError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Peso -->
             <Grid ColumnDefinitions="80,*">
                 <Label Text="Peso:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Peso}" Keyboard="Numeric" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding PesoError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding PesoError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Estatura -->
             <Grid ColumnDefinitions="80,*">
                 <Label Text="Estatura:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Estatura}" Keyboard="Numeric" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding EstaturaError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding EstaturaError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Sexo -->
             <Grid ColumnDefinitions="80,*">
                 <Label Text="Sexo:" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                 <Entry Grid.Column="1" Text="{Binding Sexo}" HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding SexoError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding SexoError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Nivel de Actividad -->
             <Grid ColumnDefinitions="80,*">
@@ -54,21 +108,21 @@
                         SelectedItem="{Binding NivelActividad, Mode=TwoWay}"
                         HorizontalOptions="FillAndExpand"/>
             </Grid>
+            <Frame BackgroundColor="#FFE0E0"
+                   BorderColor="#FF6B6B"
+                   CornerRadius="10"
+                   Padding="6"
+                   Margin="0,-8,0,5"
+                   HasShadow="True"
+                   IsVisible="{Binding NivelActividadError, Converter={StaticResource StringNotNullOrEmpty}}">
+                <Label Text="{Binding NivelActividadError}" TextColor="#B00020" FontSize="12"/>
+            </Frame>
 
             <!-- Botón -->
             <Button Text="Guardar Paciente"
                     Command="{Binding GuardarPacienteCommand}"
                     HorizontalOptions="FillAndExpand"
                     Margin="0,10"/>
-
-            <!-- Errores -->
-            <CollectionView ItemsSource="{Binding Errores}" Margin="0,5">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding .}" TextColor="Red" Padding="5"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
             <!-- Indicadores -->
             <ActivityIndicator
@@ -84,6 +138,7 @@
                     Text="{Binding Resultado}"
                     TextColor="White" />
             </Frame>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
