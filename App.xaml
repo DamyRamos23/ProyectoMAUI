@@ -1,4 +1,4 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<?xml version = "1.0" encoding = "UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ProyectoMAUI"
@@ -11,7 +11,7 @@
             </ResourceDictionary.MergedDictionaries>
 
 
-            <Style TargetType="Entry" x:Name="Prueba">
+            <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="#f5f5f5"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="PlaceholderColor" Value="AliceBlue"/>
@@ -21,22 +21,32 @@
                 <Setter Property="HorizontalOptions" Value="Fill"/>
             </Style>
 
+            <Style TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="#f5f5f5"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+            </Style>
+
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#5D9D82"/>
-                <Setter Property="BorderWidth" Value="3"/>
-                <Setter Property="BorderColor" Value="Green"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="Padding" Value="14,8"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Secondary}"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDarkText}"/>
+                <Setter Property="BorderColor" Value="{StaticResource Black}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="Margin" Value="0,0,10,0"/>
             </Style>
 
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#7D9D82"/>
                 <!-- Color de fondo -->
-                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BarTextColor" Value="Black"/>
                 <!-- Color del texto -->
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="0,0,0,5"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
