@@ -8,9 +8,10 @@ namespace ProyectoMAUI.Model.Enums
 {
     public enum NivelActividad
     {
-        Sedentario = 1,
-        Moderado = 2,
-        Activo = 3,
-        MuyActivo = 4
+        RaraVez = 1,
+        UnoATresDias = 2,
+        TresACincoDias = 3,
+        SeisASieteDias = 4,
+        MasDeSieteDias = 5
     }
 }
